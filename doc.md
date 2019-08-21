@@ -114,6 +114,11 @@ If you're not using telemetry and results sharing, you can delete the `results` 
 
 Details about the examples and how to make custom UIs will be discussed later.
 
+#### Privacy
+Telemetry contains personal information (according to GDPR defintion), therefore it is important to treat this data respectfully of national and international laws, especially if you plan to offer the service in the European Union.
+
+`example-singleServer-full.html` and `example-multipleServers-full.html` both contain a privacy policy for the service: you MUST read it, change it if necessary, and add your email address for data deletion requests. __Failure to comply with GDPR regulations can get you in serious trouble.__
+
 ### Multiple servers, PHP
 The speedtest can automatically choose between multiple test points and use the one with the lowest ping in a list.
 

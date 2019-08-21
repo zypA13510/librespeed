@@ -220,6 +220,27 @@ function initUI(){
 		height:auto;
 		margin: 0.25em 0;
 	}
+	#privacyPolicy{
+        position:fixed;
+        top:2em;
+        bottom:2em;
+        left:2em;
+        right:2em;
+        overflow-y:auto;
+        width:auto;
+        height:auto;
+        box-shadow:0 0 3em 1em #000000;
+        z-index:999999;
+        text-align:left;
+        background-color:#FFFFFF;
+        padding:1em;
+	}
+	a.privacy{
+        text-align:center;
+        font-size:0.8em;
+        color:#808080;
+        display:block;
+	}
 	@media all and (max-width:65em){
 		body{
 			font-size:1.5vw;
@@ -240,7 +261,8 @@ function initUI(){
 <body>
 <h1>HTML5 Speedtest</h1>
 <div id="testWrapper">
-	<div id="startStopBtn" onclick="startStop()"></div>
+	<div id="startStopBtn" onclick="startStop()"></div><br/>
+	<a class="privacy" href="#" onclick="I('privacyPolicy').style.display=''">Privacy</a>
 	<div id="test">
 		<div class="testGroup">
 			<div class="testArea">
@@ -281,6 +303,40 @@ function initUI(){
 		</div>
 	</div>
 	<a href="https://github.com/adolfintel/speedtest">Source code</a>
+</div>
+<div id="privacyPolicy" style="display:none">
+    <h2>Privacy Policy</h2>
+    <p>This HTML5 Speedtest server is configured with telemetry enabled.</p>
+    <h4>What data we collect</h4>
+    <p>
+        At the end of the test, the following data is collected and stored:
+        <ul>
+            <li>Test ID</li>
+            <li>Time of testing</li>
+            <li>Test results (download and upload speed, ping and jitter)</li>
+            <li>IP address</li>
+            <li>ISP information</li>
+            <li>Approximate location (inferred from IP address, not GPS)</li>
+            <li>User agent and browser locale</li>
+            <li>Test log (contains no personal information)</li>
+        </ul>
+    </p>
+    <h4>How we use the data</h4>
+    <p>
+        Data collected through this service is used to:
+        <ul>
+            <li>Allow sharing of test results (sharable image for forums, etc.)</li>
+            <li>To improve the service offered to you (for instance, to detect problems on our side)</li>
+        </ul>
+        No personal information is disclosed to third parties.
+    </p>
+    <h4>Data removal</h4>
+    <p>
+        If you want to have your information deleted, you need to provide either the ID of the test or your IP address. This is the only way to identify your data, without this information we won't be able to comply with your request.<br/><br/>
+        Contact this email address for all deletion requests: <a href="mailto:PUT@YOUR_EMAIL.HERE">TO BE FILLED BY DEVELOPER</a>.
+    </p>
+    <br/><br/>
+    <a class="privacy" href="#" onclick="I('privacyPolicy').style.display='none'">Close</a><br/>
 </div>
 <script type="text/javascript">setTimeout(function(){initUI()},100);</script>
 </body>
