@@ -299,6 +299,9 @@ Speedtest.prototype = {
           console.error("Speedtest onend event threw exception: " + e);
         }
         clearInterval(this.updater);
+        if(this._settings.mpot){
+            this._settings.telemetry_extra=this._originalExtra;
+        }
         this._state = 4;
       }
     }.bind(this);
@@ -319,6 +322,7 @@ Speedtest.prototype = {
         this._selectedServer.server + this._selectedServer.pingURL;
       this._settings.url_getIp =
         this._selectedServer.server + this._selectedServer.getIpURL;
+      this._originalExtra=this._settings.telemetry_extra;
       if (typeof this._settings.telemetry_extra !== "undefined") {
         this._settings.telemetry_extra = JSON.stringify({
           server: this._selectedServer.name,

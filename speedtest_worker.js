@@ -249,6 +249,7 @@ this.addEventListener("message", function(e) {
 	}
 	if (params[0] === "abort") {
 		// abort command
+        if (testState >= 4) return;
 		tlog("manually aborted");
 		clearRequests(); // stop all xhr activity
 		runNextTest = null;
