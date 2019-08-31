@@ -72,6 +72,9 @@ Speedtest.prototype = {
     if (this._state != 0)
       throw "You cannot change the test settings after adding server or starting the test";
     this._settings[parameter] = value;
+    if(parameter === "temeletry_extra"){
+        this._originalExtra=this._settings.telemetry_extra;
+    }
   },
   /**
    * Used internally to check if a server object contains all the required elements.
@@ -299,9 +302,6 @@ Speedtest.prototype = {
           console.error("Speedtest onend event threw exception: " + e);
         }
         clearInterval(this.updater);
-        if(this._settings.mpot){
-            this._settings.telemetry_extra=this._originalExtra;
-        }
         this._state = 4;
       }
     }.bind(this);
@@ -322,11 +322,10 @@ Speedtest.prototype = {
         this._selectedServer.server + this._selectedServer.pingURL;
       this._settings.url_getIp =
         this._selectedServer.server + this._selectedServer.getIpURL;
-      this._originalExtra=this._settings.telemetry_extra;
-      if (typeof this._settings.telemetry_extra !== "undefined") {
+      if (typeof this._originalExtra !== "undefined") {
         this._settings.telemetry_extra = JSON.stringify({
           server: this._selectedServer.name,
-          extra: this._settings.telemetry_extra
+          extra: this._originalExtra
         });
       } else
         this._settings.telemetry_extra = JSON.stringify({
