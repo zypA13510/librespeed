@@ -13,7 +13,7 @@ s.setParameter("telemetry_level","basic"); //enable telemetry
 
 var meterBk=/Trident.*rv:(\d+\.\d+)/i.test(navigator.userAgent)?"#EAEAEA":"#80808040";
 var dlColor="#6060AA",
-	ulColor="#309030";
+	ulColor="#616161";
 var progColor=meterBk;
 
 //CODE FOR GAUGES
@@ -277,12 +277,12 @@ function initUI(){
 		<div class="testGroup">
 			<div class="testArea2">
 				<div class="testName">Ping</div>
-				<div id="pingText" class="meterText"></div>
+				<div id="pingText" class="meterText" style="color:#AA6060"></div>
 				<div class="unit">ms</div>
 			</div>
 			<div class="testArea2">
 				<div class="testName">Jitter</div>
-				<div id="jitText" class="meterText"></div>
+				<div id="jitText" class="meterText" style="color:#AA6060"></div>
 				<div class="unit">ms</div>
 			</div>
 		</div>
@@ -337,6 +337,10 @@ function initUI(){
             <li>To improve the service offered to you (for instance, to detect problems on our side)</li>
         </ul>
         No personal information is disclosed to third parties.
+    </p>
+    <h4>Your consent</h4>
+    <p>
+        By starting the test, you consent to the terms of this privacy policy.
     </p>
     <h4>Data removal</h4>
     <p>

@@ -12,7 +12,7 @@ var s=new Speedtest(); //create speedtest object
 
 var meterBk=/Trident.*rv:(\d+\.\d+)/i.test(navigator.userAgent)?"#EAEAEA":"#80808040";
 var dlColor="#6060AA",
-	ulColor="#309030";
+	ulColor="#616161";
 var progColor=meterBk;
 
 //CODE FOR GAUGES
@@ -228,12 +228,12 @@ function initUI(){
         <div class="testGroup">
 			<div class="testArea2">
 				<div class="testName">Ping</div>
-				<div id="pingText" class="meterText"></div>
+				<div id="pingText" class="meterText" style="color:#AA6060"></div>
 				<div class="unit">ms</div>
 			</div>
 			<div class="testArea2">
 				<div class="testName">Jitter</div>
-				<div id="jitText" class="meterText"></div>
+				<div id="jitText" class="meterText" style="color:#AA6060"></div>
 				<div class="unit">ms</div>
 			</div>
 		</div>
