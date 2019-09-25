@@ -1,7 +1,7 @@
 /*
-	HTML5 Speedtest - Worker
+	LibreSpeed - Worker
 	by Federico Dossena
-	https://github.com/adolfintel/speedtest/
+	https://github.com/librespeed/speedtest/
 	GNU LGPLv3 License
 */
 

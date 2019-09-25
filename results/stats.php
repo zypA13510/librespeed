@@ -9,7 +9,7 @@ header('Pragma: no-cache');
 <!DOCTYPE html>
 <html>
 <head>
-<title>HTML5 Speedtest - Stats</title>
+<title>LibreSpeed - Stats</title>
 <style type="text/css">
 	html,body{
 		margin:0;
@@ -54,7 +54,7 @@ header('Pragma: no-cache');
 </style>
 </head>
 <body>
-<h1>HTML5 Speedtest - Stats</h1>
+<h1>LibreSpeed - Stats</h1>
 <?php
 include_once("telemetry_settings.php");
 require "idObfuscation.php";

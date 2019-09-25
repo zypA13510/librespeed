@@ -1,5 +1,5 @@
 <?php
-$WATERMARK_TEXT="HTML5 Speedtest";
+$WATERMARK_TEXT="LibreSpeed";
 
 error_reporting(0);
 putenv('GDFONTPATH=' . realpath('.'));
