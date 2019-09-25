@@ -1,6 +1,6 @@
-![HTML5 Speedtest Logo](https://github.com/librespeed/speedtest/blob/master/.logo/logo3.png?raw=true)
+![LibreSpeed Logo](https://github.com/librespeed/speedtest/blob/master/.logo/logo3.png?raw=true)
 
-# HTML5 Speedtest
+# LibreSpeed
 
 No Flash, No Java, No Websocket, No Bullshit.
 
@@ -36,7 +36,7 @@ Works with mobile versions too.
 * [Quick start installation guide for Ubuntu Server 19.04](https://fdossena.com/?p=speedtest/quickstart_v5_ubuntu.frag)
 
 ## Android app
-A template to build an Android client for your HTML5 Speedtest installation is available [here](https://github.com/librespeed/speedtest-android).
+A template to build an Android client for your LibreSpeed installation is available [here](https://github.com/librespeed/speedtest-android).
 
 ## Docker
 Please see the `docker` branch
