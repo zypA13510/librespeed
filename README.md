@@ -23,7 +23,7 @@ Works with mobile versions too.
 * Results sharing (optional)
 * Multiple Points of Test (optional)
 
-![Screenshot](https://speedtest.fdossena.com/mpot_v5.gif)
+![Screenshot](https://speedtest.fdossena.com/mpot_v6.gif)
 
 
 ## Server requirements
