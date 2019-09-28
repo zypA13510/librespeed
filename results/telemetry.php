@@ -13,6 +13,12 @@ $ping=($_POST["ping"]);
 $jitter=($_POST["jitter"]);
 $log=($_POST["log"]);
 
+if($redact_ip_addresses){
+    $ip="0.0.0.0";
+    $ispinfo=preg_replace('/((2[0-4]|1\d|[1-9])?\d|25[0-5])(\.(?1)){3}/',"0.0.0.0",preg_replace('/(((?=(?>.*?(::))(?!.+\3)))\3?|([\dA-F]{1,4}(\3|:(?!$)|$)|\2))(?4){5}((?4){2}|((2[0-4]|1\d|[1-9])?\d|25[0-5])(\.(?7)){3})/i',"0.0.0.0",$ispinfo));
+    $log=preg_replace('/((2[0-4]|1\d|[1-9])?\d|25[0-5])(\.(?1)){3}/',"0.0.0.0",preg_replace('/(((?=(?>.*?(::))(?!.+\3)))\3?|([\dA-F]{1,4}(\3|:(?!$)|$)|\2))(?4){5}((?4){2}|((2[0-4]|1\d|[1-9])?\d|25[0-5])(\.(?7)){3})/i',"0.0.0.0",$log));
+}
+
 header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0, s-maxage=0');
 header('Cache-Control: post-check=0, pre-check=0', false);
 header('Pragma: no-cache');

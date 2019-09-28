@@ -101,6 +101,8 @@ To enable ID obfuscation, edit `results/telemetry_settings.php` and set `$enable
 
 __Important:__ ID obfuscation currently only works on 64-bit PHP!
 
+While you're editing `results/telemetry_settings.php`, you might want to set `$redact_ip_addresses` to `true`, this way, all IP addresses will be removed from the telemetry for better privacy. This is disabled by default.
+
 ##### Seeing the results
 A basic front-end for visualizing and searching tests by ID is available in `results/stats.php`.
 
