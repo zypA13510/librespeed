@@ -326,7 +326,7 @@ __Main parameters:__
     * Default: `getIP.php`
     * __Important:__ path is relative to js file
 * __url_telemetry__: path to telemetry.php or replacement
-    * Default: `telemetry/telemetry.php`
+    * Default: `results/telemetry.php`
     * __Important:__ path is relative to js file
 	* __Note:__ you can ignore this parameter if you're not using the telemetry
 * __telemetry_level__: The type of telemetry to use. See the telemetry section for more info about this
