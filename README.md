@@ -44,12 +44,15 @@ Please see the `docker` branch
 ## Node.js backend
 A Node.js implementation is available in the `node` branch, maintained by [dunklesToast](https://github.com/dunklesToast).
 
+## Go backend
+A Go implementation is available in the `go` branch, maintained by [Maddie Zhan](https://github.com/maddie).
+
 ## Donate
 [![Donate with Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/fdossena/donate)  
 [Donate with PayPal](https://www.paypal.me/sineisochronic)  
 
 ## License
-Copyright (C) 2016-2019 Federico Dossena
+Copyright (C) 2016-2020 Federico Dossena
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by
