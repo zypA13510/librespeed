@@ -7,7 +7,7 @@ No Flash, No Java, No Websocket, No Bullshit.
 This is a very lightweight Speedtest implemented in Javascript, using XMLHttpRequest and Web Workers.
 
 ## Try it
-[Take a Speedtest](https://speedtest.fdossena.com)
+[Take a Speedtest](https://librespeed.org)
 
 ## Compatibility
 All modern browsers are supported: IE11, latest Edge, latest Chrome, latest Firefox, latest Safari.  
@@ -41,11 +41,11 @@ A template to build an Android client for your LibreSpeed installation is availa
 ## Docker
 Please see the `docker` branch
 
-## Node.js backend
-A Node.js implementation is available in the `node` branch, maintained by [dunklesToast](https://github.com/dunklesToast).
-
 ## Go backend
 A Go implementation is available in the `go` branch, maintained by [Maddie Zhan](https://github.com/maddie).
+
+## Node.js backend
+A partial Node.js implementation is available in the `node` branch, developed by [dunklesToast](https://github.com/dunklesToast). It's not recommended to use at the moment.
 
 ## Donate
 [![Donate with Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/fdossena/donate)  
