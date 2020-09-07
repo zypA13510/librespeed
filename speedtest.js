@@ -72,7 +72,7 @@ Speedtest.prototype = {
     if (this._state != 0)
       throw "You cannot change the test settings after adding server or starting the test";
     this._settings[parameter] = value;
-    if(parameter === "temeletry_extra"){
+    if(parameter === "telemetry_extra"){
         this._originalExtra=this._settings.telemetry_extra;
     }
   },
