@@ -69,7 +69,7 @@ Speedtest.prototype = {
    * Invalid values or nonexistant parameters will be ignored by the speedtest worker.
    */
   setParameter: function(parameter, value) {
-    if (this._state != 0)
+    if (this._state != 0 && this._state != 4)
       throw "You cannot change the test settings after adding server or starting the test";
     this._settings[parameter] = value;
     if(parameter === "telemetry_extra"){
