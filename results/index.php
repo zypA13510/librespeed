@@ -52,7 +52,7 @@ function formatSpeedtestDataForImage($speedtest)
     $speedtest['dl'] = format($speedtest['dl']);
     $speedtest['ul'] = format($speedtest['ul']);
     $speedtest['ping'] = format($speedtest['ping']);
-    $speedtest['jit'] = format($speedtest['jitter']);
+    $speedtest['jitter'] = format($speedtest['jitter']);
     $speedtest['timestamp'] = $speedtest['timestamp'];
 
     $ispinfo = json_decode($speedtest['ispinfo'], true)['processedString'];
