@@ -86,9 +86,9 @@ header('Pragma: no-cache');
                     $speedtest = getSpeedtestUserById($_GET['id']);
                     $speedtests = [];
                     if (false === $speedtest) {
-                        echo '<div>There was an error trying to fetch the speedtest result for ID "'.$_GET['id'].'".</div>';
+                        echo '<div>There was an error trying to fetch the speedtest result for ID "'.htmlspecialchars($_GET['id'], ENT_HTML5, 'UTF-8').'".</div>';
                     } elseif (null === $speedtest) {
-                        echo '<div>Could not find a speedtest result for ID "'.$_GET['id'].'".</div>';
+                        echo '<div>Could not find a speedtest result for ID "'.htmlspecialchars($_GET['id'], ENT_HTML5, 'UTF-8').'".</div>';
                     } else {
                         $speedtests = [$speedtest];
                     }
