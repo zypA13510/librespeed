@@ -37,6 +37,11 @@ fi
 # Apply Telemetry settings when running in standalone or frontend mode and telemetry is enabled
 if [[ "$TELEMETRY" == "true" && ( "$MODE" == "frontend" || "$MODE" == "standalone" ) ]]; then
   cp -r /speedtest/results /var/www/html/results
+  
+  if [ "$MODE" == "frontend" ]; then
+    mkdir /var/www/html/backend
+    cp /speedtest/backend/getIP_util.php /var/www/html/backend
+  fi
 
   if  [ "$DB_TYPE" == "mysql" ]; then
     sed -i 's/$db_type = '\''.*'\''/$db_type = '\'$DB_TYPE\''/g' /var/www/html/results/telemetry_settings.php
