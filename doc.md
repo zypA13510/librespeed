@@ -117,7 +117,7 @@ If you're not using telemetry and results sharing, you can delete the `results` 
 Details about the examples and how to make custom UIs will be discussed later. If you don't want to make a custom UI, feel free to modify the example and replace "LibreSpeed Example" with the name of your test.
 
 #### Privacy
-Telemetry contains personal information (according to GDPR defintion), therefore it is important to treat this data respectfully of national and international laws, especially if you plan to offer the service in the European Union.
+Telemetry contains personal information (according to GDPR definition), therefore it is important to treat this data respectfully of national and international laws, especially if you plan to offer the service in the European Union.
 
 `example-singleServer-full.html` and `example-multipleServers-full.html` both contain a privacy policy for the service: you MUST read it, change it if necessary, and add your email address for data deletion requests. __Failure to comply with GDPR regulations can get you in serious trouble.__
 
@@ -506,7 +506,7 @@ You can think of this as a finite state machine. These are the states (use getSt
     ```
     While in state 1, you can only add test points, you cannot change the test settings. When you're done, use selectServer(callback) to select the test point with the lowest ping. This is asynchronous, when it's done, it will call your callback function and move to state 2. Calling setSelectedServer(server) will manually select a server and move to state 2.
 * __2__: test point selected, ready to start the test. Use `start()` to begin, this will move to state 3
-* __3__: test running. Here, your `onupdate` event calback will be called periodically, with data coming from the worker about speed and progress. A data object will be passed to your `onupdate` function, with the following items:
+* __3__: test running. Here, your `onupdate` event callback will be called periodically, with data coming from the worker about speed and progress. A data object will be passed to your `onupdate` function, with the following items:
         - `dlStatus`: download speed in mbps
         - `ulStatus`: upload speed in mbps
         - `pingStatus`: ping in ms
@@ -664,7 +664,7 @@ Access-Control-Allow-Headers: Content-Encoding, Content-Type
 This file stores telemetry information into the database.
 
 Data is passed as POST parameters:
-* `ispinfo`: ISP info (if enabled, empty strng otherwise)
+* `ispinfo`: ISP info (if enabled, empty string otherwise)
 * `extra`: the `telemetry_extra` string passed to the worker (if set, empty string otherwise)
 * `dl`: download speed
 * `ul`: upload speed
@@ -741,7 +741,7 @@ s.setParameter("url_ping","backend/empty.dat");
 s.setParameter("test_order","P_D_U");
 ```
 
-This will point to our static files and set the test to only do ping/jitter, download and uplod tests.
+This will point to our static files and set the test to only do ping/jitter, download and upload tests.
 
 ## Troubleshooting
 These are the most common issues reported by users, and how to fix them. If you still need help, contact me at [info@fdossena.com](mailto:info@fdossena.com).
@@ -807,7 +807,7 @@ Also, make sure that the web server has write permission on the `results` folder
 
 ## Known bugs and limitations
 ### General
-* The ping/jitter test is measured by seeing how long it takes for an empty XHR to complete. It is not an acutal ICMP ping. Different browsers may also show different results, especially on very fast connections on slow devices.
+* The ping/jitter test is measured by seeing how long it takes for an empty XHR to complete. It is not an actual ICMP ping. Different browsers may also show different results, especially on very fast connections on slow devices.
 ### IE specific
 * The upload test is not precise on very fast connections with high latency (will probably be fixed by Edge 17)
 * On IE11, a same origin policy error is erroneously triggered under unknown conditions. Seems to be related to running the test from unusual URLs like a top level domain (for instance http://abc/speedtest). These are bugs in IE11's implementation of the same origin policy, not in the speedtest itself.
