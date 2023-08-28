@@ -6,15 +6,15 @@
 */
 
 /*
-   This is the main interface between your webpage and the speedtest.
-   It hides the speedtest web worker to the page, and provides many convenient functions to control the test.
+   This is the main interface between your webpage and the speed test.
+   It hides the speed test web worker to the page, and provides many convenient functions to control the test.
    
    The best way to learn how to use this is to look at the basic example, but here's some documentation.
   
    To initialize the test, create a new Speedtest object:
     var s=new Speedtest();
    Now you can think of this as a finite state machine. These are the states (use getState() to see them):
-   - 0: here you can change the speedtest settings (such as test duration) with the setParameter("parameter",value) method. From here you can either start the test using start() (goes to state 3) or you can add multiple test points using addTestPoint(server) or addTestPoints(serverList) (goes to state 1). Additionally, this is the perfect moment to set up callbacks for the onupdate(data) and onend(aborted) events.
+   - 0: here you can change the speed test settings (such as test duration) with the setParameter("parameter",value) method. From here you can either start the test using start() (goes to state 3) or you can add multiple test points using addTestPoint(server) or addTestPoints(serverList) (goes to state 1). Additionally, this is the perfect moment to set up callbacks for the onupdate(data) and onend(aborted) events.
    - 1: here you can add test points. You only need to do this if you want to use multiple test points.
         A server is defined as an object like this:
         {
@@ -46,7 +46,7 @@
 function Speedtest() {
   this._serverList = []; //when using multiple points of test, this is a list of test points
   this._selectedServer = null; //when using multiple points of test, this is the selected server
-  this._settings = {}; //settings for the speedtest worker
+  this._settings = {}; //settings for the speed test worker
   this._state = 0; //0=adding settings, 1=adding servers, 2=server selection done, 3=test running, 4=done
   console.log(
     "LibreSpeed by Federico Dossena v5.2.5 - https://github.com/librespeed/speedtest"
@@ -66,7 +66,7 @@ Speedtest.prototype = {
    * - parameter: string with the name of the parameter that you want to set
    * - value: new value for the parameter
    *
-   * Invalid values or nonexistant parameters will be ignored by the speedtest worker.
+   * Invalid values or nonexistant parameters will be ignored by the speed test worker.
    */
   setParameter: function(parameter, value) {
     if (this._state == 3)

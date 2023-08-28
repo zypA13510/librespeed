@@ -11,8 +11,8 @@ function I(i){return document.getElementById(i);}
 //LIST OF TEST SERVERS. See documentation for details if needed
 var SPEEDTEST_SERVERS= <?= file_get_contents('/servers.json') ?: '[]' ?>;
 
-//INITIALIZE SPEEDTEST
-var s=new Speedtest(); //create speedtest object
+//INITIALIZE SPEED TEST
+var s=new Speedtest(); //create speed test object
 <?php if(getenv("TELEMETRY")=="true"){ ?>
 s.setParameter("telemetry_level","basic");
 <?php } ?>
@@ -112,7 +112,7 @@ function format(d){
 var uiData=null;
 function startStop(){
     if(s.getState()==3){
-		//speedtest is running, abort
+		//speed test is running, abort
 		s.abort();
 		data=null;
 		I("startStopBtn").className="";
@@ -432,7 +432,7 @@ function initUI(){
 </div>
 <div id="privacyPolicy" style="display:none">
     <h2>Privacy Policy</h2>
-    <p>This HTML5 Speedtest server is configured with telemetry enabled.</p>
+    <p>This HTML5 speed test server is configured with telemetry enabled.</p>
     <h4>What data we collect</h4>
     <p>
         At the end of the test, the following data is collected and stored:

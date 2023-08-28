@@ -15,7 +15,7 @@ If you want to install LibreSpeed on a single server, you need to configure it i
 The test can be accessed on port 80.
 
 Here's a list of additional environment variables available in this mode:
-* __`TITLE`__: Title of your speedtest. Default value: `LibreSpeed`
+* __`TITLE`__: Title of your speed test. Default value: `LibreSpeed`
 * __`TELEMETRY`__: Whether to enable telemetry or not. Default value: `false`
 * __`ENABLE_ID_OBFUSCATION`__: When set to true with telemetry enabled, test IDs are obfuscated, to avoid exposing the database internal sequential IDs. Default value: `false`
 * __`REDACT_IP_ADDRESSES`__: When set to true with telemetry enabled, IP addresses and hostnames are redacted from the collected telemetry, for better privacy. Default value: `false`

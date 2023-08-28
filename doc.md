@@ -5,7 +5,7 @@
 > [https://github.com/librespeed/speedtest/](https://github.com/librespeed/speedtest/)
 
 ## Introduction
-LibreSpeed is a Free and Open Source speedtest that you can host on your server(s), and users can run in their browser.
+LibreSpeed is a Free and Open Source speed test that you can host on your server(s), and users can run in their browser.
 
 __Features:__
 * Download test
@@ -30,7 +30,7 @@ The following browsers are officially supported:
 Client side, the test can use up to 500MB of RAM on very fast connections.
 
 ## Quick start guides
-These guides cover a simple single server installation of the Speedtest.
+These guides cover a simple single server installation of the speed test.
 
 * [Quick start installation guide for Ubuntu Server 19.04](https://fdossena.com/?p=speedtest/quickstart_v5_ubuntu.frag)
 
@@ -50,14 +50,14 @@ Server side, you'll need:
 * If you want to enable results sharing:
     - FreeType 2 and its PHP module (this is usually installed automatically by most distros)
 
-Let's install the speedtest.
+Let's install the speed test.
 
 Put all files on your web server via FTP or by copying them directly. You can install it in the root, or in a subdirectory.
 
-__Important:__ The speedtest needs write permissions in the installation folder!
+__Important:__ The speed test needs write permissions in the installation folder!
 
 #### ipinfo.io
-The speedtest uses [ipinfo.io](https://ipinfo.io) to detect ISP and distance from server. This is completely optional and can be disabled if you want (see Speedtest settings), but it is enabled by default, and if you expect more than ~500 tests per day, you will need to sign up to [ipinfo.io](https://ipinfo.io) and edit `backend/getIP_ipInfo_apikey.php` to set your access token.
+The speed test uses [ipinfo.io](https://ipinfo.io) to detect ISP and distance from server. This is completely optional and can be disabled if you want (see speed test settings), but it is enabled by default, and if you expect more than ~500 tests per day, you will need to sign up to [ipinfo.io](https://ipinfo.io) and edit `backend/getIP_ipInfo_apikey.php` to set your access token.
 
 IpInfo.io has kindly offered free access to their APIs for users of this project; if you're interested, contact me at [info@fdossena.com](mailto:info@fdossena.com) and provide a description of what you intend to do with the project, and you'll get the API key.
 
@@ -122,9 +122,9 @@ Telemetry contains personal information (according to GDPR defintion), therefore
 `example-singleServer-full.html` and `example-multipleServers-full.html` both contain a privacy policy for the service: you MUST read it, change it if necessary, and add your email address for data deletion requests. __Failure to comply with GDPR regulations can get you in serious trouble.__
 
 ### Multiple servers, PHP
-The speedtest can automatically choose between multiple test points and use the one with the lowest ping in a list.
+The speed test can automatically choose between multiple test points and use the one with the lowest ping in a list.
 
-Note that this is an advanced use case and it is recommended that you already know how to use the speedtest with a single server.
+Note that this is an advanced use case and it is recommended that you already know how to use the speed test with a single server.
 
 We must distinguish 2 types of servers:
 * __Frontend server__: hosts the UI, the JS files, and optionally telemetry and results sharing stuff. You only need 1 of these, and this is the server that your clients will first connect to.
@@ -143,20 +143,20 @@ Requirements:
 * If you want to enable results sharing:
     - FreeType 2 and its PHP module (this is usually installed automatically by most distros)
 
-To install the speedtest frontend, copy the following files to your web server:
+To install the speed test frontend, copy the following files to your web server:
 * `speedtest.js`
 * `speedtest_worker.js`
 * Optionally, the `results` folder
 * One of the `multipleServers` examples (the best starting points are `example-multipleServers-pretty.html` if you don't want to use telemetry and results sharing, `example-multipleServers-full.html` if you want to use them). Rename the example you choose to `index.html`
 
-__Important:__ The speedtest needs write permissions in the installation folder!
+__Important:__ The speed test needs write permissions in the installation folder!
 
 ##### Server list
 Edit `index.html`, you will see a list of servers:
 ```js
 var SPEEDTEST_SERVERS=[
 	{
-		"name":"Speedtest Demo Server 1", //user friendly name for the server
+		"name":"Speed test Demo Server 1", //user friendly name for the server
 		"server":"//mpotdemo.fdossena.com/", //URL to the server. // at the beginning will be replaced with http:// or https:// automatically
 		"dlURL":"garbage.php",  //path to download test on this server (garbage.php or replacement)
 		"ulURL":"empty.php",  //path to upload test on this server (empty.php or replacement)
@@ -164,7 +164,7 @@ var SPEEDTEST_SERVERS=[
 		"getIpURL":"getIP.php"  //path to getIP on this server (getIP.php or replacement)
 	},
 	{
-		"name":"Speedtest Demo Server 2",
+		"name":"Speed test Demo Server 2",
 		"server":"//mpotdemo2.fdossena.com/",
 		"dlURL":"garbage.php",
 		"ulURL":"empty.php",
@@ -221,10 +221,10 @@ Requirements:
 
 To install a backend, simply copy all the files in the `backend` folder to your backend server.
 
-__Important:__ The speedtest needs write permissions in the installation folder!
+__Important:__ The speed test needs write permissions in the installation folder!
 
 #### ipinfo.io
-The speedtest uses [ipinfo.io](https://ipinfo.io) to detect ISP and distance from server. This is completely optional and can be disabled if you want (see Speedtest settings), but it is enabled by default, and if you expect more than ~500 tests per day, you will need to sign up to [ipinfo.io](https://ipinfo.io) and edit `getIP_ipInfo_apikey.php` to set your access token.
+The speed test uses [ipinfo.io](https://ipinfo.io) to detect ISP and distance from server. This is completely optional and can be disabled if you want (see speed test settings), but it is enabled by default, and if you expect more than ~500 tests per day, you will need to sign up to [ipinfo.io](https://ipinfo.io) and edit `getIP_ipInfo_apikey.php` to set your access token.
 
 IpInfo.io has kindly offered free access to their APIs for users of this project; if you're interested, contact me at [info@fdossena.com](mailto:info@fdossena.com) and provide a description of what you intend to do with the project, and you'll get the API key.
 
@@ -247,7 +247,7 @@ __Multiple servers:__
 * `example-multipleServers-full.html`: Same as `example-singleServer-full.html` but with multiple test points. Server selection is automatic but the server can be changed afterwards by the user
 
 ### Initialization
-To use the speedtest in your page, first you need to load it:
+To use the speed test in your page, first you need to load it:
 ```xml
 <script type="text/javascript" src="speedtest.js"></script>
 ```
@@ -271,7 +271,7 @@ s.onend=function(aborted){
 }
 ```
 
-The `onupdate` event handler will be called periodically by the test with data coming from the speedtest worker thread. The `data` argument is an object containing the following:
+The `onupdate` event handler will be called periodically by the test with data coming from the speed test worker thread. The `data` argument is an object containing the following:
 * __testState__: an integer between -1 and 5
     * `-1` = Test not started yet
     * `0` = Test starting
@@ -307,7 +307,7 @@ The `onupdate` event handler will be called periodically by the test with data c
 The `onend` event handler will be called at the end of the test (`onupdate` will be called first), with a boolean telling you if the test was aborted (either manually or because of an error) or if it ended normally.
 
 ### Test parameters
-Before starting the test, you can change some of the settings from their default values. You might want to do this to better adapt the speedtest to a specific scenario, such as a satellite connection. To change a setting, use
+Before starting the test, you can change some of the settings from their default values. You might want to do this to better adapt the speed test to a specific scenario, such as a satellite connection. To change a setting, use
 ```js
 s.setParameter("parameter_name",value);
 ```
@@ -362,7 +362,7 @@ __Main parameters:__
     * __Important:__ On Firefox, it is better to run the upload test last
 * __getIp_ispInfo__: if true, the server will try to get ISP info and pass it along with the IP address. This will add `isp=true` to the request to `url_getIp`. getIP.php accomplishes this using ipinfo.io
     * Default: `true`
-* __getIp_ispInfo_distance__: if true, the server will try to get an estimate of the distance from the client to the speedtest server. This will add a `distance` argument to the request to `url_getIp`. `__getIp_ispInfo__` must be enabled in order for this to work. getIP.php accomplishes this using ipinfo.io
+* __getIp_ispInfo_distance__: if true, the server will try to get an estimate of the distance from the client to the speed test server. This will add a `distance` argument to the request to `url_getIp`. `__getIp_ispInfo__` must be enabled in order for this to work. getIP.php accomplishes this using ipinfo.io
     * `km`: estimate distance in kilometers
     * `mi`: estimate distance in miles
     * not set: do not measure distance
@@ -421,7 +421,7 @@ __Advanced parameters:__ (Seriously, don't change these unless you know what you
 ### Multiple Points of Test
 If you want to use more than one test server, this is the time to add all your test points and select the best one. Skip this part if you don't want to use this feature.
 
-The best way to do this is to declare an array with all your servers, and give it to the speedtest:
+The best way to do this is to declare an array with all your servers, and give it to the speed test:
 ```js
 var SPEEDTEST_SERVERS=[
 	server1,
@@ -483,15 +483,15 @@ s.abort();
 When the test is finished, you can run it again if you want, or you can just destroy `s`.
 
 ## Implementation details
-The purpose of this section is to help developers who want to make changes to the inner workings of the speedtest.  
+The purpose of this section is to help developers who want to make changes to the inner workings of the speed test.  
 It will be divided into 4 sections: `speedtest.js`, `speedtest_worker.js`, the `backend` files and the `results` files.
 
 ### `speedtest.js`
-This is the main interface between your webpage and the speedtest.
-It hides the speedtest web worker to the page, and provides many convenient functions to control the test.
+This is the main interface between your webpage and the speed test.
+It hides the speed test web worker to the page, and provides many convenient functions to control the test.
 
 You can think of this as a finite state machine. These are the states (use getState() to see them):
-* __0__: here you can change the speedtest settings (such as test duration) with the `setParameter("parameter",value)` function. From here you can either start the test using `start()` (goes to state 3) or you can add multiple test points using `addTestPoint(server)` or `addTestPoints(serverList)` (goes to state 1). Additionally, this is the perfect moment to set up callbacks for the `onupdate(data)` and `onend(aborted)` events.
+* __0__: here you can change the speed test settings (such as test duration) with the `setParameter("parameter",value)` function. From here you can either start the test using `start()` (goes to state 3) or you can add multiple test points using `addTestPoint(server)` or `addTestPoints(serverList)` (goes to state 1). Additionally, this is the perfect moment to set up callbacks for the `onupdate(data)` and `onend(aborted)` events.
 * __1__: here you can add test points. You only need to do this if you want to use multiple test points.
     A server is defined as an object like this:
     ```
@@ -531,7 +531,7 @@ Change one of the test settings from their defaults.
 - parameter: string with the name of the parameter that you want to set
 - value: new value for the parameter
 
-Invalid values or nonexistant parameters will be ignored by the speedtest worker.
+Invalid values or nonexistant parameters will be ignored by the speed test worker.
 
 ##### addTestPoint(server)
 Add a test point (multiple points of test)
@@ -547,7 +547,7 @@ Add a test point (multiple points of test)
     }
     ```
 
-Note that this will add `mpot`:`true` to the parameters sent to the speedtest worker.
+Note that this will add `mpot`:`true` to the parameters sent to the speed test worker.
 
 ##### addTestPoints(list)
 Same as addTestPoint, but you can pass an array of servers
@@ -582,7 +582,7 @@ At the end of the test, the `onend(aborted)` function will be called with a bool
 Aborts the test while it's running.
 
 ### `speedtest_worker.js`
-This is where the actual speedtest code is. It receives the settings from the main thread, runs the test, and reports back the results.
+This is where the actual speed test code is. It receives the settings from the main thread, runs the test, and reports back the results.
 
 The worker accepts 3 commands:
 * `start`: starts the test. Optionally, test settings can be passed as a JSON string after the word start and a space
@@ -689,11 +689,11 @@ See the code for the implementation details, it's basically a bunch of bitwise o
 Simple UI to display and search test results. Not required to run the test.
 
 ## Alternative backends
-If for some reason you can't or don't want to use PHP, the speedtest can run with other backends, or even no backend (with limited functionality).
+If for some reason you can't or don't want to use PHP, the speed test can run with other backends, or even no backend (with limited functionality).
 
 You will need replacements for `backend/garbage.php` and `backend/empty.php` and optionally `backend/getIP.php`, and the test needs to know where to find them:
 ```js
-//Speedtest initialization
+//Speed test initialization
 var s=new Speedtest();
 ...
 //Custom backend
@@ -725,7 +725,7 @@ Your replacement can simply respond with the client's IP as plaintext or do some
 If you want to make your own backend, see the section on the implementation details of `getIP.php`.
 
 ### No backend
-The speedtest can run, albeit with limited functionality, using only a web server as backend, with no PHP or other server-side scripting.
+The speed test can run, albeit with limited functionality, using only a web server as backend, with no PHP or other server-side scripting.
 
 You will be able to run the download and upload test, but no IP, ISP and distance detection, no telemetry and results sharing, and only a single point of test.
 
@@ -772,7 +772,7 @@ If the image doesn't display and the browser displays a broken image icon, FreeT
 If the image is blank, this usually happens because PHP can't find the font files inside the `results` folder. You can fix your PHP config or edit `results/index.php` and use absolute paths for the fonts. This is a [known issue with PHP](http://php.net/manual/en/function.imagefttext.php) and no real solution is known.
 
 #### My server is behind Cloudflare and I can't reach full speed on some of the tests
-This is not a speedtest related issue, as it can be replicated in virtually any HTTP file upload/download.  
+This is not a speed test related issue, as it can be replicated in virtually any HTTP file upload/download.  
 Go to your domain's DNS settings and change "DNS and HTTP proxy (CDN)" to "DNS only", and wait for the settings to be applied (can take a few minutes).
 
 #### On Windows Server, using IIS, the upload test doesn't work, CORS errors are visible in the console
@@ -810,7 +810,7 @@ Also, make sure that the web server has write permission on the `results` folder
 * The ping/jitter test is measured by seeing how long it takes for an empty XHR to complete. It is not an acutal ICMP ping. Different browsers may also show different results, especially on very fast connections on slow devices.
 ### IE specific
 * The upload test is not precise on very fast connections with high latency (will probably be fixed by Edge 17)
-* On IE11, a same origin policy error is erroneously triggered under unknown conditions. Seems to be related to running the test from unusual URLs like a top level domain (for instance http://abc/speedtest). These are bugs in IE11's implementation of the same origin policy, not in the speedtest itself.
+* On IE11, a same origin policy error is erroneously triggered under unknown conditions. Seems to be related to running the test from unusual URLs like a top level domain (for instance http://abc/speedtest). These are bugs in IE11's implementation of the same origin policy, not in the speed test itself.
 * On IE11, under unknown circumstances, on some systems the test can only be run once, after which speedtest_worker.js will not be loaded by IE until the browser is restarted. This is a rare bug in IE11.
 ### Firefox specific
 * On some Linux systems with hardware acceleration turned off, the page rendering makes the browser lag, reducing the accuracy of the ping/jitter test, and potentially even the download and upload tests on very fast connections.
