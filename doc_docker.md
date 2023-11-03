@@ -9,6 +9,34 @@ docker pull adolfintel/speedtest
 
 You will now have a new docker image called `adolfintel/speedtest`.
 
+
+## Docker Compose
+To start the container using [docker compose](https://docs.docker.com/compose/) the following configuration can be used:
+
+```yml
+version: '3.7'
+services:
+  speedtest:
+    container_name: speedtest
+    image: adolfintel/speedtest
+    restart: always
+    environment:
+      MODE: standalone
+      #TITLE: "LibreSpeed"
+      #TELEMETRY: "false"
+      #ENABLE_ID_OBFUSCATION: "false"
+      #REDACT_IP_ADDRESSES: "false"
+      #PASSWORD:
+      #EMAIL:
+      #DISABLE_IPINFO: "false"
+      #DISTANCE: "km"
+      #WEBPORT: 80
+    ports:
+      - "80:80" # webport mapping (host:container)
+```
+
+Please adjust the environment variables according to the intended operating mode.
+
 ## Standalone mode
 If you want to install LibreSpeed on a single server, you need to configure it in standalone mode. To do this, set the `MODE` environment variable to `standalone`.
 
