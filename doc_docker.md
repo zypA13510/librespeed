@@ -44,7 +44,7 @@ The test can be accessed on port 80.
 
 Here's a list of additional environment variables available in this mode:
 * __`TITLE`__: Title of your speed test. Default value: `LibreSpeed`
-* __`TELEMETRY`__: Whether to enable telemetry or not. Default value: `false`
+* __`TELEMETRY`__: Whether to enable telemetry or not. If enabled, you maybe want your data to be persisted. See below. Default value: `false`
 * __`ENABLE_ID_OBFUSCATION`__: When set to true with telemetry enabled, test IDs are obfuscated, to avoid exposing the database internal sequential IDs. Default value: `false`
 * __`REDACT_IP_ADDRESSES`__: When set to true with telemetry enabled, IP addresses and hostnames are redacted from the collected telemetry, for better privacy. Default value: `false`
 * __`PASSWORD`__: Password to access the stats page. If not set, stats page will not allow accesses.
@@ -56,6 +56,13 @@ Here's a list of additional environment variables available in this mode:
 
 If telemetry is enabled, a stats page will be available at `http://your.server/results/stats.php`, but a password must be specified.
 
+### Persist sqlite database
+
+Default DB driver is sqlite. The DB file is written to `/database/db.sql`.
+
+So if you want your data to be persisted over image updates, you have to mount a volume with `-v $PWD/db-dir:/database`.
+
+
 ###### Example
 This command starts LibreSpeed in standalone mode, with the default settings, on port 80:
 
@@ -66,7 +73,7 @@ docker run -e MODE=standalone -p 80:80 -it adolfintel/speedtest
 This command starts LibreSpeed in standalone mode, with telemetry, ID obfuscation and a stats password, on port 86:
 
 ```
-docker run -e MODE=standalone -e TELEMETRY=true -e ENABLE_ID_OBFUSCATION=true -e PASSWORD="yourPasswordHere" -e WEBPORT=86 -p 86:86 -it adolfintel/speedtest
+docker run -e MODE=standalone -e TELEMETRY=true -e ENABLE_ID_OBFUSCATION=true -e PASSWORD="yourPasswordHere" -e WEBPORT=86 -p 86:86 -v $PWD/db-dir/:/database -it adolfintel/speedtest
 ```
 
 ## Multiple Points of Test
