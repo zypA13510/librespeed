@@ -6,14 +6,14 @@ name: Docker
 # documentation.
 
 on:
-#  schedule:
-#    - cron: '30 20 * * *'
+  #  schedule:
+  #    - cron: '30 20 * * *'
   push:
-    branches: [ "*" ]
+    branches: ["*"]
     # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
+    tags: ["v*.*.*"]
   pull_request:
-    branches: [ "main","master" ]
+    branches: ["{{is_default_branch}}"]
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -21,10 +21,8 @@ env:
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
 
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -43,7 +41,7 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: sigstore/cosign-installer@6e04d228eb30da1757ee4e1dd75a0ec73a653e06 #v3.1.1
         with:
-          cosign-release: 'v2.1.1'
+          cosign-release: "v2.1.1"
 
       # Set up BuildKit Docker container builder to be able to build
       # multi-platform images and export cache
@@ -68,11 +66,11 @@ jobs:
         uses: docker/metadata-action@96383f45573cb7f253c731d3b3ab81c87ef81934 # v5.0.0
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-        tags: |
+          tags: |
             type=ref,event=branch
             type=ref,event=pr
-  # set latest tag for default branch
-  type=raw,value=latest,enable={{is_default_branch}}
+            # set latest tag for default branch
+            type=raw,value=latest,enable={{is_default_branch}}
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
 
