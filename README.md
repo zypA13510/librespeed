@@ -32,7 +32,20 @@ Works with mobile versions too.
 * MySQL database to store test results (optional, Microsoft SQL Server, PostgreSQL and SQLite also supported)
 * A fast! internet connection
 
-## Installation videos
+## Installation
+Assuming you have PHP installed, the installation steps are quite simple.
+I set this up on a QNAP.
+For this example, I am using a folder called **speedtest** in my web share area.
+
+1. Choose one of the example-xxx.html files as your new index.html in your speedtest folder. I used: example-singleServer-full.html
+2. Add: speedtest.js, speedtest_worker.js, and favicon.ico to your speedtest folder.
+3. Download all of the backend folder into speedtest/backend.
+4. Download all of the results folder into speedtest/results.
+5. Be sure your permissions allow execute (755).
+6. Visit YOURSITE/speedtest/index.html and voila!
+
+### Installation Video
+There is a more in-depth installation video here:
 * [Quick start installation guide for Ubuntu Server 19.04](https://fdossena.com/?p=speedtest/quickstart_v5_ubuntu.frag)
 
 ## Android app
