@@ -1,13 +1,13 @@
-A docker version of LibreSpeed is available on docker hub: [https://hub.docker.com/r/adolfintel/speedtest/](https://hub.docker.com/r/adolfintel/speedtest/)
+A docker version of LibreSpeed is available here: [GitHub Packages](https://github.com/librespeed/speedtest/pkgs/container/speedtest)
 
-## Downloading from Docker hub
-To download LibreSpeed from the docker hub, use this command:
+## Downloading docker image
+To download LibreSpeed from the docker repo, use this command:
 
 ```
-docker pull adolfintel/speedtest
+docker pull ghcr.io/librespeed/speedtest
 ```
 
-You will now have a new docker image called `adolfintel/speedtest`.
+You will now have a new docker image called `librespeed/speedtest`.
 
 
 ## Docker Compose
@@ -18,7 +18,7 @@ version: '3.7'
 services:
   speedtest:
     container_name: speedtest
-    image: adolfintel/speedtest
+    image: ghcr.io/librespeed/speedtest:latest
     restart: always
     environment:
       MODE: standalone
@@ -67,13 +67,13 @@ So if you want your data to be persisted over image updates, you have to mount a
 This command starts LibreSpeed in standalone mode, with the default settings, on port 80:
 
 ```
-docker run -e MODE=standalone -p 80:80 -it adolfintel/speedtest
+docker run -e MODE=standalone -p 80:80 -it ghcr.io/librespeed/speedtest
 ```
 
 This command starts LibreSpeed in standalone mode, with telemetry, ID obfuscation and a stats password, on port 86:
 
 ```
-docker run -e MODE=standalone -e TELEMETRY=true -e ENABLE_ID_OBFUSCATION=true -e PASSWORD="yourPasswordHere" -e WEBPORT=86 -p 86:86 -v $PWD/db-dir/:/database -it adolfintel/speedtest
+docker run -e MODE=standalone -e TELEMETRY=true -e ENABLE_ID_OBFUSCATION=true -e PASSWORD="yourPasswordHere" -e WEBPORT=86 -p 86:86 -v $PWD/db-dir/:/database -it ghcr.io/librespeed/speedtest
 ```
 
 ## Multiple Points of Test
@@ -90,7 +90,7 @@ Here's a list of additional environment variables available in this mode:
 ###### Example:
 This command starts LibreSpeed in backend mode, with the default settings, on port 80:
 ```
-docker run -e MODE=backend -p 80:80 -it adolfintel/speedtest
+docker run -e MODE=backend -p 80:80 -it ghcr.io/librespeed/speedtest
 ```
 
 ### Frontend mode
@@ -137,5 +137,5 @@ Here's a list of additional environment variables available in this mode:
 ###### Example
 This command starts LibreSpeed in frontend mode, with a given `servers.json` file, and with telemetry, ID obfuscation, and a stats password:
 ```
-docker run -e MODE=frontend -e TELEMETRY=true -e ENABLE_ID_OBFUSCATION=true -e PASSWORD="yourPasswordHere" -v $(pwd)/servers.json:/servers.json -p 80:80 -it adolfintel/speedtest
+docker run -e MODE=frontend -e TELEMETRY=true -e ENABLE_ID_OBFUSCATION=true -e PASSWORD="yourPasswordHere" -v $(pwd)/servers.json:/servers.json -p 80:80 -it ghcr.io/librespeed/speedtest
 ```
