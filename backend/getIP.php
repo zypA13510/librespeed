@@ -76,7 +76,7 @@ function getIpInfoTokenString()
         return '';
     }
 
-    return '?token='.$IPINFO_APIKEY;
+    return '?token=' . $IPINFO_APIKEY;
 }
 
 /**
@@ -86,7 +86,7 @@ function getIpInfoTokenString()
  */
 function getIspInfo($ip)
 {
-    $json = file_get_contents('https://ipinfo.io/'.$ip.'/json'.getIpInfoTokenString());
+    $json = file_get_contents('https://ipinfo.io/' . $ip . '/json' . getIpInfoTokenString());
     if (!is_string($json)) {
         return null;
     }
@@ -106,17 +106,91 @@ function getIspInfo($ip)
  */
 function getIsp($rawIspInfo)
 {
-    if (
-        !is_array($rawIspInfo)
-        || !array_key_exists('org', $rawIspInfo)
-        || !is_string($rawIspInfo['org'])
-        || empty($rawIspInfo['org'])
-    ) {
-        return 'Unknown ISP';
+    if (is_array($rawIspInfo)) {
+        /* variant with no token
+        has json like: 
+        {
+            "ip": "xxx.xxx.xxx.xxx",
+            "hostname": "example.com",
+            "city": "Vienna",
+            "region": "Vienna",
+            "country": "AT",
+            "loc": "48.2085,16.3721",
+            "org": "ASxxxx T-Mobile Austria GmbH",
+            "postal": "nnnn",
+            "timezone": "Europe/Vienna",
+            "readme": "https://ipinfo.io/missingauth"
+        }
+        */
+        if (
+            array_key_exists('org', $rawIspInfo)
+            && is_string($rawIspInfo['org'])
+            && !empty($rawIspInfo['org'])
+        ) {
+            // Remove AS##### from ISP name, if present
+            return preg_replace('/AS\\d+\\s/', '', $rawIspInfo['org']);
+        }
+
+        /*
+        variant with valid token has json:
+        {
+            "ip": "xxx.xxx.xxx.xxx",
+            "hostname": "example.com",
+            "city": "Vienna",
+            "region": "Vienna",
+            "country": "AT",
+            "loc": "48.2085,16.3721",
+            "postal": "1010",
+            "timezone": "Europe/Vienna",
+            "asn": {
+                "asn": "ASxxxx",
+                "name": "T-Mobile Austria GmbH",
+                "domain": "t-mobile.at",
+                "route": "xxx.xxx.xxx.xxx/xx",
+                "type": "isp"
+            },
+            "company": {
+                "name": "XX",
+                "domain": "example.com",
+                "type": "isp"
+            },
+            "privacy": {
+                "vpn": true,
+                "proxy": false,
+                "tor": false,
+                "relay": false,
+                "hosting": false,
+                "service": ""
+            },
+            "abuse": {
+                "address": "...",
+                "country": "AT",
+                "email": "abuse@example.com",
+                "name": "XXX",
+                "network": "xxx.xxx.xxx.xxx-xxx.xxx.xxx.xxx",
+                "phone": ""
+            },
+            "domains": {
+                "total": 0,
+                "domains": [
+                
+                ]
+            }
+            }
+         */
+        if (
+            array_key_exists('asn', $rawIspInfo)
+            && is_string($rawIspInfo['asn'])
+            && !empty($rawIspInfo['asn'])
+            && array_key_exists('name', $rawIspInfo['asn'])
+            && is_string($rawIspInfo['asn']['name'])
+        ) {
+            // Remove AS##### from ISP name, if present
+            return $rawIspInfo['asn']['name'];
+        }
     }
 
-    // Remove AS##### from ISP name, if present
-    return preg_replace('/AS\\d+\\s/', '', $rawIspInfo['org']);
+    return 'Unknown ISP';
 }
 
 /**
@@ -135,7 +209,7 @@ function getServerLocation()
         return $serverLoc;
     }
 
-    $json = file_get_contents('https://ipinfo.io/json'.getIpInfoTokenString());
+    $json = file_get_contents('https://ipinfo.io/json' . getIpInfoTokenString());
     if (!is_string($json)) {
         return null;
     }
@@ -151,7 +225,7 @@ function getServerLocation()
     }
 
     $serverLoc = $details['loc'];
-    $cacheData = "<?php\n\n\$serverLoc = '".addslashes($serverLoc)."';\n";
+    $cacheData = "<?php\n\n\$serverLoc = '" . addslashes($serverLoc) . "';\n";
     file_put_contents(SERVER_LOCATION_CACHE_FILE, $cacheData);
 
     return $serverLoc;
@@ -240,7 +314,7 @@ function calculateDistance($clientLocation, $serverLocation, $unit)
             $dist = '<15';
         }
 
-        return $dist.' mi';
+        return $dist . ' mi';
     }
 
     if ('km' === $unit) {
@@ -249,7 +323,7 @@ function calculateDistance($clientLocation, $serverLocation, $unit)
             $dist = '<20';
         }
 
-        return $dist.' km';
+        return $dist . ' km';
     }
 
     return null;
@@ -288,17 +362,17 @@ function sendResponse(
 ) {
     $processedString = $ip;
     if (is_string($ipInfo)) {
-        $processedString .= ' - '.$ipInfo;
+        $processedString .= ' - ' . $ipInfo;
     }
 
     if (
         is_array($rawIspInfo)
         && array_key_exists('country', $rawIspInfo)
     ) {
-        $processedString .= ', '.$rawIspInfo['country'];
+        $processedString .= ', ' . $rawIspInfo['country'];
     }
     if (is_string($distance)) {
-        $processedString .= ' ('.$distance.')';
+        $processedString .= ' (' . $distance . ')';
     }
 
     sendHeaders();
