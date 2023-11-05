@@ -180,7 +180,7 @@ function getIsp($rawIspInfo)
          */
         if (
             array_key_exists('asn', $rawIspInfo)
-            && is_string($rawIspInfo['asn'])
+            && is_array($rawIspInfo['asn'])
             && !empty($rawIspInfo['asn'])
             && array_key_exists('name', $rawIspInfo['asn'])
             && is_string($rawIspInfo['asn']['name'])
