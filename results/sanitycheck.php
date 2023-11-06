@@ -171,7 +171,7 @@ echo '   ';
 print_r($pdo);
 if(!isset($pdo)){
 	echo 'got nothing';
-} 
+}
 if($pdo == false){
 	echo 'got a false';
 }

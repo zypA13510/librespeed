@@ -29,7 +29,7 @@ COPY docker/servers.json /servers.json
 COPY docker/*.php /speedtest/
 COPY docker/entrypoint.sh /
 
-# Prepare default environment variables 
+# Prepare default environment variables
 ENV TITLE=LibreSpeed
 ENV MODE=standalone
 ENV PASSWORD=password

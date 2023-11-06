@@ -120,7 +120,7 @@ In frontend mode, LibreSpeed serves clients the Web UI and a list of servers. To
     ```
     Note: if a server only supports HTTP or HTTPS, specify the protocol in the server field. If it supports both, just use `//`.
 * Mount this file to `/servers.json` in the container (example at the end of this file)
-    
+
 The test can be accessed on port 80.
 
 Here's a list of additional environment variables available in this mode:

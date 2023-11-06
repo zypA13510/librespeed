@@ -1,6 +1,6 @@
 # LibreSpeed
 
-> by Federico Dossena  
+> by Federico Dossena
 > Version 5.2.4
 > [https://github.com/librespeed/speedtest/](https://github.com/librespeed/speedtest/)
 
@@ -109,7 +109,7 @@ A basic front-end for visualizing and searching tests by ID is available in `res
 A login is required to access the interface. __Important__: change the default password in `results/telemetry_settings.php`.
 
 #### The end
-Now that the test is installed, rename one of the examples to `index.html` and delete the other examples.  
+Now that the test is installed, rename one of the examples to `index.html` and delete the other examples.
 The best starting point for most people is `example-singleServer-gauges.html`. If you want to use telemetry and results sharing, use `example-singleServer-full.html` instead.
 
 If you're not using telemetry and results sharing, you can delete the `results` folder too.
@@ -459,7 +459,7 @@ s.selectServer(function(server){
     //do something
 })
 ```
-The `selectServer` function is asynchronous in order to avoid freeing the UI, and it will run a callback function when it is done choosing the server with the lowest ping.  
+The `selectServer` function is asynchronous in order to avoid freeing the UI, and it will run a callback function when it is done choosing the server with the lowest ping.
 The `server` argument is the selected server, and you can display it in the UI if you want. __You cannot start the test until the selection is done!__
 
 You can also set the test point manually (for instance, from a combobox in the UI):
@@ -483,7 +483,7 @@ s.abort();
 When the test is finished, you can run it again if you want, or you can just destroy `s`.
 
 ## Implementation details
-The purpose of this section is to help developers who want to make changes to the inner workings of the speed test.  
+The purpose of this section is to help developers who want to make changes to the inner workings of the speed test.
 It will be divided into 4 sections: `speedtest.js`, `speedtest_worker.js`, the `backend` files and the `results` files.
 
 ### `speedtest.js`
@@ -515,7 +515,7 @@ You can think of this as a finite state machine. These are the states (use getSt
         - `ulProgress`: progress of the upload test as a float 0-1
         - `pingProgress`: progress of the ping/jitter test as a float 0-1
         - `testState`: state of the test (-1=not started, 0=starting, 1=download test, 2=ping+jitter test, 3=upload test, 4=finished, 5=aborted)
-        - `clientIp`: IP address of the client performing the test (and optionally ISP and distance) 
+        - `clientIp`: IP address of the client performing the test (and optionally ISP and distance)
     At the end of the test, the `onend` function will be called, with a boolean specifying whether the test was aborted or if it ended normally.
     The test can be aborted at any time with `abort()`.
     At the end of the test, it will move to state 4
@@ -575,7 +575,7 @@ Starts the test.
 
 Note (multiple points of test): the selected server will be added to the `telemetry_extra` string. If this string was already set, then `telemetry_extra` will be a JSON string containing both the server and the original string
 
-During the test, the `onupdate(data)` callback function will be called periodically with data from the worker.  
+During the test, the `onupdate(data)` callback function will be called periodically with data from the worker.
 At the end of the test, the `onend(aborted)` function will be called with a boolean telling you if the test was aborted or if it ended normally.
 
 ##### abort()
@@ -747,8 +747,8 @@ This will point to our static files and set the test to only do ping/jitter, dow
 These are the most common issues reported by users, and how to fix them. If you still need help, contact me at [info@fdossena.com](mailto:info@fdossena.com).
 
 #### Download test gives very low result
-Are garbage.php and empty.php (or your replacements) reachable?  
-Press F12, select network and start the test. Do you see errors? (cancelled requests are not errors)  
+Are garbage.php and empty.php (or your replacements) reachable?
+Press F12, select network and start the test. Do you see errors? (cancelled requests are not errors)
 If a small download starts, open it in a text editor. Does it say it's missing openssl_random_pseudo_bytes()? In this case, install OpenSSL (this is usually included when you install Apache and PHP on most distros).
 
 #### Upload test is inaccurate, and/or I see lag spikes
@@ -764,15 +764,15 @@ You're running the test on localhost, therefore it is trying to measure the spee
 Make sure your server is sending the `Connection:keep-alive` header
 
 #### The server is behind a load balancer, proxy, etc. and I get the wrong IP address
-Edit getIP.php and replace lines 14-23 with what is more appropriate in your scenario.  
+Edit getIP.php and replace lines 14-23 with what is more appropriate in your scenario.
 Example: `$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];`
 
 #### The results sharing just generates a blank image
-If the image doesn't display and the browser displays a broken image icon, FreeType2 is not installed or configured properly.  
+If the image doesn't display and the browser displays a broken image icon, FreeType2 is not installed or configured properly.
 If the image is blank, this usually happens because PHP can't find the font files inside the `results` folder. You can fix your PHP config or edit `results/index.php` and use absolute paths for the fonts. This is a [known issue with PHP](http://php.net/manual/en/function.imagefttext.php) and no real solution is known.
 
 #### My server is behind Cloudflare and I can't reach full speed on some of the tests
-This is not a speed test related issue, as it can be replicated in virtually any HTTP file upload/download.  
+This is not a speed test related issue, as it can be replicated in virtually any HTTP file upload/download.
 Go to your domain's DNS settings and change "DNS and HTTP proxy (CDN)" to "DNS only", and wait for the settings to be applied (can take a few minutes).
 
 #### On Windows Server, using IIS, the upload test doesn't work, CORS errors are visible in the console
@@ -781,26 +781,26 @@ This is a configuration issue. Make a file called web.config in wwwroot and adap
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
   <system.webServer>
-    <cors enabled="true" failUnlistedOrigins="false"> 
-      <add origin="*"> 
+    <cors enabled="true" failUnlistedOrigins="false">
+      <add origin="*">
         <allowHeaders allowAllRequestedHeaders="true" />
-        <allowMethods> 
-          <add method="GET" /> 
-          <add method="POST" /> 
-          <add method="PUT" /> 
-          <add method="DELETE" /> 
-          <add method="OPTIONS" /> 
-        </allowMethods> 
+        <allowMethods>
+          <add method="GET" />
+          <add method="POST" />
+          <add method="PUT" />
+          <add method="DELETE" />
+          <add method="OPTIONS" />
+        </allowMethods>
         <exposeHeaders>
-        </exposeHeaders> 
+        </exposeHeaders>
       </add>
-    </cors> 
-  </system.webServer> 
+    </cors>
+  </system.webServer>
 </configuration>
 ```
 
 #### ID obfuscation doesn't work (incorrect output, blank results image)
-ID obfuscation only works on 64-bit PHP (requires PHP_INT_SIZE to be 8).  
+ID obfuscation only works on 64-bit PHP (requires PHP_INT_SIZE to be 8).
 Note that older versions of PHP 5 on Windows use PHP_INT_SIZE of 4, even if they're 64 bit. If you're in this situation, update your PHP install.
 
 Also, make sure that the web server has write permission on the `results` folder.
@@ -818,7 +818,7 @@ Also, make sure that the web server has write permission on the `results` folder
 ## Contributing
 Since this is an open source project, you can modify it.
 
-If you made some changes that you think should make it into the main project, send a Pull Request on GitHub, or contact me at [info@fdossena.com](mailto:info@fdossena.com).  
+If you made some changes that you think should make it into the main project, send a Pull Request on GitHub, or contact me at [info@fdossena.com](mailto:info@fdossena.com).
 We don't require you to use a specific coding convention, write the code however you want and we'll change the formatting if necessary.
 
 Donations are also appreciated: you can donate with [PayPal](https://www.paypal.me/sineisochronic) or [Liberapay](https://liberapay.com/fdossena/donate).

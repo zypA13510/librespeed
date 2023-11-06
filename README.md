@@ -10,7 +10,7 @@ This is a very lightweight speed test implemented in Javascript, using XMLHttpRe
 [Take a speed test](https://librespeed.org)
 
 ## Compatibility
-All modern browsers are supported: IE11, latest Edge, latest Chrome, latest Firefox, latest Safari.  
+All modern browsers are supported: IE11, latest Edge, latest Chrome, latest Firefox, latest Safari.
 Works with mobile versions too.
 
 ## Features
@@ -61,8 +61,8 @@ A Go implementation is available in the [`speedtest-go`](https://github.com/libr
 A partial Node.js implementation is available in the `node` branch, developed by [dunklesToast](https://github.com/dunklesToast). It's not recommended to use at the moment.
 
 ## Donate
-[![Donate with Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/fdossena/donate)  
-[Donate with PayPal](https://www.paypal.me/sineisochronic)  
+[![Donate with Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/fdossena/donate)
+[Donate with PayPal](https://www.paypal.me/sineisochronic)
 
 ## License
 Copyright (C) 2016-2022 Federico Dossena

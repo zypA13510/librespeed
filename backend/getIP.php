@@ -108,7 +108,7 @@ function getIsp($rawIspInfo)
 {
     if (is_array($rawIspInfo)) {
         /* variant with no token
-        has json like: 
+        has json like:
         {
             "ip": "xxx.xxx.xxx.xxx",
             "hostname": "example.com",
@@ -173,7 +173,7 @@ function getIsp($rawIspInfo)
             "domains": {
                 "total": 0,
                 "domains": [
-                
+
                 ]
             }
             }
