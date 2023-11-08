@@ -212,6 +212,7 @@ function drawImage($speedtest)
     imagefttext($im, $FONT_WATERMARK_SIZE, 0, $POSITION_X_WATERMARK, $POSITION_Y_WATERMARK, $TEXT_COLOR_WATERMARK, $FONT_WATERMARK, $WATERMARK_TEXT);
 
     // send the image to the browser
+    header('Content-Type: image/png');
     imagepng($im);
 }
 
@@ -220,5 +221,4 @@ if (!is_array($speedtest)) {
     exit(1);
 }
 
-header('Content-Type: image/png');
 drawImage($speedtest);
