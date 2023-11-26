@@ -92,7 +92,7 @@ if(!isset($db_type) || $db_type != 'postgresql'){
 	echo $failed;
 }
 ?>
-</td><td>Only required if using sqlite.</td></tr>
+</td><td>Only required if using postgresql.</td></tr>
 
 
 <tr><td colspan="3" class='SectionHeading'>Database check</td></tr>
@@ -171,7 +171,7 @@ echo '   ';
 print_r($pdo);
 if(!isset($pdo)){
 	echo 'got nothing';
-} 
+}
 if($pdo == false){
 	echo 'got a false';
 }

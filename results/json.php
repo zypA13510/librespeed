@@ -55,5 +55,5 @@ if (!is_array($speedtest)) {
     echo '{}';
 }
 $speedtest = formatSpeedtestData($speedtest);
- 
+
 echo json_encode(array('timestamp'=>$speedtest['timestamp'],'download'=>$speedtest['dl'],'upload'=>$speedtest['ul'],'ping'=>$speedtest['ping'],'jitter'=>$speedtest['jitter'],'ispinfo'=>$speedtest['ispinfo']));

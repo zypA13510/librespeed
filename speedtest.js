@@ -8,9 +8,9 @@
 /*
    This is the main interface between your webpage and the speed test.
    It hides the speed test web worker to the page, and provides many convenient functions to control the test.
-   
+
    The best way to learn how to use this is to look at the basic example, but here's some documentation.
-  
+
    To initialize the test, create a new Speedtest object:
     var s=new Speedtest();
    Now you can think of this as a finite state machine. These are the states (use getState() to see them):
@@ -27,16 +27,16 @@
         }
         While in state 1, you can only add test points, you cannot change the test settings. When you're done, use selectServer(callback) to select the test point with the lowest ping. This is asynchronous, when it's done, it will call your callback function and move to state 2. Calling setSelectedServer(server) will manually select a server and move to state 2.
     - 2: test point selected, ready to start the test. Use start() to begin, this will move to state 3
-    - 3: test running. Here, your onupdate event calback will be called periodically, with data coming from the worker about speed and progress. A data object will be passed to your onupdate function, with the following items:
-            - dlStatus: download speed in mbps
-            - ulStatus: upload speed in mbps
+    - 3: test running. Here, your onupdate event callback will be called periodically, with data coming from the worker about speed and progress. A data object will be passed to your onupdate function, with the following items:
+            - dlStatus: download speed in Mbit/s
+            - ulStatus: upload speed in Mbit/s
             - pingStatus: ping in ms
             - jitterStatus: jitter in ms
             - dlProgress: progress of the download test as a float 0-1
             - ulProgress: progress of the upload test as a float 0-1
             - pingProgress: progress of the ping/jitter test as a float 0-1
             - testState: state of the test (-1=not started, 0=starting, 1=download test, 2=ping+jitter test, 3=upload test, 4=finished, 5=aborted)
-            - clientIp: IP address of the client performing the test (and optionally ISP and distance) 
+            - clientIp: IP address of the client performing the test (and optionally ISP and distance)
         At the end of the test, the onend function will be called, with a boolean specifying whether the test was aborted or if it ended normally.
         The test can be aborted at any time with abort().
         At the end of the test, it will move to state 4

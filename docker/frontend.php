@@ -3,6 +3,8 @@
 <head>
 <link rel="shortcut icon" href="favicon.ico">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no" />
+<link rel="apple-touch-icon" href="favicon.ico">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <meta charset="UTF-8" />
 <script type="text/javascript" src="speedtest.js"></script>
 <script type="text/javascript">
@@ -409,13 +411,13 @@ function initUI(){
 				<div class="testName">Download</div>
 				<canvas id="dlMeter" class="meter"></canvas>
 				<div id="dlText" class="meterText"></div>
-				<div class="unit">Mbps</div>
+				<div class="unit">Mbit/s</div>
 			</div>
 			<div class="testArea">
 				<div class="testName">Upload</div>
 				<canvas id="ulMeter" class="meter"></canvas>
 				<div id="ulText" class="meterText"></div>
-				<div class="unit">Mbps</div>
+				<div class="unit">Mbit/s</div>
 			</div>
 		</div>
 		<div id="ipArea">
