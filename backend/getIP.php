@@ -30,6 +30,11 @@ function getLocalOrPrivateIpInfo($ip)
         return 'link-local IPv6 access';
     }
 
+    // fc00::/7 Unique Local IPv6 Unicast Addresses
+    if (preg_match('/^(fc|fd)([0-9a-f]{0,4}:){1,7}[0-9a-f]{1,4}$/i', $ip) === 1) {
+        return 'ULA IPv6 access';
+    }
+
     // anything within the 127/8 range is localhost ipv4, the ip must start with 127.0
     if (strpos($ip, '127.') === 0) {
         return 'localhost IPv4 access';
