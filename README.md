@@ -51,6 +51,9 @@ There is a more in-depth installation video here:
 ## Android app
 A template to build an Android client for your LibreSpeed installation is available [here](https://github.com/librespeed/speedtest-android).
 
+## CLI client
+A command line client is available [here](https://github.com/librespeed/speedtest-cli).
+
 ## Docker
 A docker image is available on [GitHub](https://github.com/librespeed/speedtest/pkgs/container/speedtest), check our [docker documentation](doc_docker.md) for more info about it.
 
