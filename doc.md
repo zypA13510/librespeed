@@ -109,8 +109,7 @@ A basic front-end for visualizing and searching tests by ID is available in `res
 A login is required to access the interface. __Important__: change the default password in `results/telemetry_settings.php`.
 
 #### The end
-Now that the test is installed, rename one of the examples to `index.html` and delete the other examples.
-The best starting point for most people is `example-singleServer-gauges.html`. If you want to use telemetry and results sharing, use `example-singleServer-full.html` instead.
+Now that the test is installed, the default page uses telemetry and results sharing. If you want another index page, rename one of the examples to `index.html` and delete the other examples. The best starting point for most people is `example-singleServer-gauges.html`.
 
 If you're not using telemetry and results sharing, you can delete the `results` folder too.
 
@@ -119,7 +118,7 @@ Details about the examples and how to make custom UIs will be discussed later. I
 #### Privacy
 Telemetry contains personal information (according to GDPR definition), therefore it is important to treat this data respectfully of national and international laws, especially if you plan to offer the service in the European Union.
 
-`example-singleServer-full.html` and `example-multipleServers-full.html` both contain a privacy policy for the service: you MUST read it, change it if necessary, and add your email address for data deletion requests. __Failure to comply with GDPR regulations can get you in serious trouble.__
+Default `index.html` and `example-multipleServers-full.html` both contain a privacy policy for the service: you MUST read it, change it if necessary, and add your email address for data deletion requests. __Failure to comply with GDPR regulations can get you in serious trouble.__
 
 ### Multiple servers, PHP
 The speed test can automatically choose between multiple test points and use the one with the lowest ping in a list.
@@ -240,11 +239,11 @@ __Single server:__
 * `example-singleServer-customSettings.html`: Same as `example-singleServer-pretty.html` but configures the test so that it only performs download and upload tests, and with a fixed length instead of automatic
 * `example-singleServer-gauges.html`: The most sophisticated example, with the same functionality as `example-singleServer-pretty.html` but adds gauges. This is also a good starting point, but the gauges may slow down underpowered devices
 * `example-singleServer-chart.html`: Shows how to use the test with the Chart.js library
-* `example-singleServer-full.html`: The most complete example. Based on `example-singleServer-gauges.html`, also enables telemetry and results sharing
+* default `index.html`: The most complete example. Based on `example-singleServer-gauges.html`, also enables telemetry and results sharing
 
 __Multiple servers:__
 * `example-multipleServers-pretty.html`: Same as `example-singleServer-pretty.html` but with multiple test points. Server selection is fully automatic
-* `example-multipleServers-full.html`: Same as `example-singleServer-full.html` but with multiple test points. Server selection is automatic but the server can be changed afterwards by the user
+* `example-multipleServers-full.html`: Same as default `index.html` but with multiple test points. Server selection is automatic but the server can be changed afterwards by the user
 
 ### Initialization
 To use the speed test in your page, first you need to load it:

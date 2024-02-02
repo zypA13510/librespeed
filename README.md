@@ -28,7 +28,7 @@ Works with mobile versions too.
 
 ## Server requirements
 * A reasonably fast web server with Apache 2 (nginx, IIS also supported)
-* PHP 5.4 (other backends also available)
+* PHP 5.4 or newer (other backends also available)
 * MySQL database to store test results (optional, Microsoft SQL Server, PostgreSQL and SQLite also supported)
 * A fast! internet connection
 
@@ -37,7 +37,7 @@ Assuming you have PHP installed, the installation steps are quite simple.
 I set this up on a QNAP.
 For this example, I am using a folder called **speedtest** in my web share area.
 
-1. Choose one of the example-xxx.html files as your new index.html in your speedtest folder. I used: example-singleServer-full.html
+1. Choose one of the example-xxx.html files in `examples` folder as your index.html if the default index.html does not fit.
 2. Add: speedtest.js, speedtest_worker.js, and favicon.ico to your speedtest folder.
 3. Download all of the backend folder into speedtest/backend.
 4. Download all of the results folder into speedtest/results.
