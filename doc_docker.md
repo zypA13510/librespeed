@@ -139,3 +139,10 @@ This command starts LibreSpeed in frontend mode, with a given `servers.json` fil
 ```
 docker run -e MODE=frontend -e TELEMETRY=true -e ENABLE_ID_OBFUSCATION=true -e PASSWORD="yourPasswordHere" -v $(pwd)/servers.json:/servers.json -p 80:80 -it ghcr.io/librespeed/speedtest
 ```
+
+### Dual mode
+In dual mode, LibreSpeed operates as a standalone server that can also connect to other test points.
+To do this:
+* Set the `MODE` environment variable to `dual`
+* Follow the `servers.json` instructions for the frontend mode
+* The first server entry should be the local server, using the server endpoint address that a client can access.
