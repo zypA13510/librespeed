@@ -13,7 +13,7 @@ cp /speedtest/*.js /var/www/html/
 cp /speedtest/favicon.ico /var/www/html/
 
 # Set up backend side for standlone modes
-if [ "$MODE" == "standalone" ]; then
+if [[ "$MODE" == "standalone" || "$MODE" == "dual" ]]; then
   cp -r /speedtest/backend/ /var/www/html/backend
   if [ ! -z "$IPINFO_APIKEY" ]; then
     sed -i s/\$IPINFO_APIKEY\ =\ \'\'/\$IPINFO_APIKEY\ =\ \'$IPINFO_APIKEY\'/g /var/www/html/backend/getIP_ipInfo_apikey.php
@@ -28,14 +28,14 @@ if [ "$MODE" == "backend" ]; then
 fi
 
 # Set up index.php for frontend-only or standalone modes
-if [ "$MODE" == "frontend" ]; then
+if [[ "$MODE" == "frontend" || "$MODE" == "dual" ]]; then
   cp /speedtest/frontend.php /var/www/html/index.php
 elif [ "$MODE" == "standalone" ]; then
   cp /speedtest/standalone.php /var/www/html/index.php
 fi
 
 # Apply Telemetry settings when running in standalone or frontend mode and telemetry is enabled
-if [[ "$TELEMETRY" == "true" && ( "$MODE" == "frontend" || "$MODE" == "standalone" ) ]]; then
+if [[ "$TELEMETRY" == "true" && ( "$MODE" == "frontend" || "$MODE" == "standalone" || "$MODE" == "dual" ) ]]; then
   cp -r /speedtest/results /var/www/html/results
 
   if [ "$MODE" == "frontend" ]; then
