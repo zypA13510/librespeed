@@ -38,6 +38,9 @@ ENV ENABLE_ID_OBFUSCATION=false
 ENV REDACT_IP_ADDRESSES=false
 ENV WEBPORT=80
 
+# https://httpd.apache.org/docs/2.4/stopping.html#gracefulstop
+STOPSIGNAL SIGWINCH
+
 # Final touches
 EXPOSE 80
 CMD ["bash", "/entrypoint.sh"]
